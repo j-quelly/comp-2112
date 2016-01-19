@@ -1,0 +1,422 @@
+/* jshint ignore:start */
+
+/* 2. Grid system: 		
+ * - basic grid system definitions 
+ * - (test media queries, try and remove !important)
+ */
+*, *:after, *:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+[class*='s-'],
+[class*='m-'],
+[class*='l-'],
+[class*='xl-'] {
+	float: left;
+	padding: 2%;
+}
+
+.container { 
+	margin: 0 auto; 
+	width: 100%; 
+	min-width: 320px; 
+	max-width: 1366px; 
+} 
+
+/* clearfix */
+.container:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*
+ *
+ * basic grid definition 
+ *
+ */
+
+/* mobile */
+.s-1 {width: 8.33%;}
+.s-2 {width: 16.66%;}
+.s-3 {width: 25%;} 
+.s-4 {width: 33.33%;}
+.s-5 {width: 41.67%;}
+.s-6 {width: 50%;}
+.s-7 {width: 58.33%}
+.s-8 { width: 66.66%}
+.s-9 { width: 75%}
+.s-10 {width: 83.34%}
+.s-11 {width: 91.67%}
+.s-12 {width:100%;}
+
+/* phablet */
+.m-1 {width: 8.33%;}
+.m-2 {width: 16.66%;}
+.m-3 {width: 25%;} 
+.m-4 {width: 33.33%;}
+.m-5 {width: 41.67%;}
+.m-6 {width: 50%;}
+.m-7 {width: 58.33%}
+.m-8 { width: 66.66%}
+.m-9 { width: 75%}
+.m-10 {width: 83.34%}
+.m-11 {width: 91.67%}
+.m-12 {width:100%;}
+
+/* tablet */
+.l-1 {width: 8.33%;}
+.l-2 {width: 16.66%;}
+.l-3 {width: 25%;} 
+.l-4 {width: 33.33%;}
+.l-5 {width: 41.67%;}
+.l-6 {width: 50%;}
+.l-7 {width: 58.33%}
+.l-8 { width: 66.66%}
+.l-9 { width: 75%}
+.l-10 {width: 83.34%}
+.l-11 {width: 91.67%}
+.l-12 {width:100%;}
+
+/* desktop */
+.xl-1 {width: 8.33%;}
+.xl-2 {width: 16.66%;}
+.xl-3 {width: 25%;} 
+.xl-4 {width: 33.33%;}
+.xl-5 {width: 41.67%;}
+.xl-6 {width: 50%;}
+.xl-7 {width: 58.33%}
+.xl-8 { width: 66.66%}
+.xl-9 { width: 75%}
+.xl-10 {width: 83.34%}
+.xl-11 {width: 91.67%}
+.xl-12 {width:100%;}
+
+
+/* Responsive styles					
+ * - responsive style definitions 
+ */
+
+/* responsive images */
+img {  
+	max-width: 100%;
+	height: auto;
+	border: 0;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+	border: 0; 
+  }
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 979px) { 
+	.hide-desktop { display: none; }
+	.hide-tablet { display: none; }
+	.hide-sml-tablet { display: block; } 
+	.hide-mobile { display: block; }
+	
+	.show-tablet { display: block; }
+	.show-sml-tablet { display: none; }
+	.show-mobile { display: none; }	
+
+	.l-1 {width: 8.33%;}
+	.l-2 {width: 16.66%;}
+	.l-3 {width: 25%;} 
+	.l-4 {width: 33.33%;}
+	.l-5 {width: 41.67%;}
+	.l-6 {width: 50%;}
+	.l-7 {width: 58.33%}
+	.l-8 { width: 66.66%}
+	.l-9 { width: 75%}
+	.l-10 {width: 83.34%}
+	.l-11 {width: 91.67%}
+	.l-12 {width:100%;}
+}
+ 
+/* phablet */
+@media (max-width: 767px) { 
+	.hide-desktop { display: none; }
+	.hide-tablet { display: none; }
+	.hide-sml-tablet { display: none; }
+	.hide-mobile { display: block; }
+	
+	.show-tablet { display: block; }
+	.show-sml-tablet { display: block; }
+	.show-mobile { display: none; }	
+	
+	.m-1 {width: 8.33%;}
+	.m-2 {width: 16.66%;}
+	.m-3 {width: 25%;} 
+	.m-4 {width: 33.33%;}
+	.m-5 {width: 41.67%;}
+	.m-6 {width: 50%;}
+	.m-7 {width: 58.33%}
+	.m-8 { width: 66.66%}
+	.m-9 { width: 75%}
+	.m-10 {width: 83.34%}
+	.m-11 {width: 91.67%}
+	.m-12 {width:100%;}
+}
+ 
+/* mobile */
+@media (max-width: 480px) {  	
+	.hide-desktop { display: none; }
+	.hide-tablet { display: none; }
+	.hide-sml-tablet { display: none; }
+	.hide-mobile { display: none; }
+	
+	.show-tablet { display: block; }
+	.show-sml-tablet { display: block; } 
+	.show-mobile { display: block; }
+
+/*	[class*='s-'],
+	[class*='m-'],
+	[class*='l-'],
+	[class*='xl-'] {
+		float: left;
+		padding: 16px 16px 0 16px; 
+	} 
+	
+	[class*='s-']:last-of-type,
+	[class*='m-']:last-of-type,
+	[class*='l-']:last-of-type,
+	[class*='xl-']:last-of-type {
+		padding-right: 16px;
+	}*/	
+	
+	.s-1 {width: 8.33%;}
+	.s-2 {width: 16.66%;}
+	.s-3 {width: 25%;} 
+	.s-4 {width: 33.33%;}
+	.s-5 {width: 41.67%;}
+	.s-6 {width: 50%;}
+	.s-7 {width: 58.33%}
+	.s-8 { width: 66.66%}
+	.s-9 { width: 75%}
+	.s-10 {width: 83.34%}
+	.s-11 {width: 91.67%}
+	.s-12 {width:100%;}
+}
+
+/* 6. Responsive Text 				- some neat responsive text courtesy of materializecss
+========================================================================================== */
+.text-flow {
+    font-weight: 300;
+}
+@media only screen and (min-width: 360px) {
+.text-flow {
+    font-size: 1.2rem;
+}
+}
+@media only screen and (min-width: 0px) {
+.text-flow {
+    line-height: 0.8rem;
+}
+}
+@media only screen and (min-width: 390px) {
+.text-flow {
+    font-size: 1.224rem;
+}
+}
+@media only screen and (min-width: 30px) {
+.text-flow {
+    line-height: 0.904rem;
+}
+}
+@media only screen and (min-width: 420px) {
+.text-flow {
+    font-size: 1.248rem;
+}
+}
+@media only screen and (min-width: 60px) {
+.text-flow {
+    line-height: 1.008rem;
+}
+}
+@media only screen and (min-width: 450px) {
+.text-flow {
+    font-size: 1.272rem;
+}
+}
+@media only screen and (min-width: 90px) {
+.text-flow {
+    line-height: 1.112rem;
+}
+}
+@media only screen and (min-width: 480px) {
+.text-flow {
+    font-size: 1.296rem;
+}
+}
+@media only screen and (min-width: 120px) {
+.text-flow {
+    line-height: 1.216rem;
+}
+}
+@media only screen and (min-width: 510px) {
+.text-flow {
+    font-size: 1.32rem;
+}
+}
+@media only screen and (min-width: 150px) {
+.text-flow {
+    line-height: 1.32rem;
+}
+}
+@media only screen and (min-width: 540px) {
+.text-flow {
+    font-size: 1.344rem;
+}
+}
+@media only screen and (min-width: 180px) {
+.text-flow {
+    line-height: 1.424rem;
+}
+}
+@media only screen and (min-width: 570px) {
+.text-flow {
+    font-size: 1.368rem;
+}
+}
+@media only screen and (min-width: 210px) {
+.text-flow {
+    line-height: 1.528rem;
+}
+}
+@media only screen and (min-width: 600px) {
+.text-flow {
+    font-size: 1.392rem;
+}
+}
+@media only screen and (min-width: 240px) {
+.text-flow {
+    line-height: 1.632rem;
+}
+}
+@media only screen and (min-width: 630px) {
+.text-flow {
+    font-size: 1.416rem;
+}
+}
+@media only screen and (min-width: 270px) {
+.text-flow {
+    line-height: 1.736rem;
+}
+}
+@media only screen and (min-width: 660px) {
+.text-flow {
+    font-size: 1.44rem;
+}
+}
+@media only screen and (min-width: 300px) {
+.text-flow {
+    line-height: 1.84rem;
+}
+}
+@media only screen and (min-width: 690px) {
+.text-flow {
+    font-size: 1.464rem;
+}
+}
+@media only screen and (min-width: 330px) {
+.text-flow {
+    line-height: 1.944rem;
+}
+}
+@media only screen and (min-width: 720px) {
+.text-flow {
+    font-size: 1.488rem;
+}
+}
+@media only screen and (min-width: 360px) {
+.text-flow {
+    line-height: 2.048rem;
+}
+}
+@media only screen and (min-width: 750px) {
+.text-flow {
+    font-size: 1.512rem;
+}
+}
+@media only screen and (min-width: 390px) {
+.text-flow {
+    line-height: 2.152rem;
+}
+}
+@media only screen and (min-width: 780px) {
+.text-flow {
+    font-size: 1.536rem;
+}
+}
+@media only screen and (min-width: 420px) {
+.text-flow {
+    line-height: 2.256rem;
+}
+}
+@media only screen and (min-width: 810px) {
+.text-flow {
+    font-size: 1.56rem;
+}
+}
+@media only screen and (min-width: 450px) {
+.text-flow {
+    line-height: 2.36rem;
+}
+}
+@media only screen and (min-width: 840px) {
+.text-flow {
+    font-size: 1.584rem;
+}
+}
+@media only screen and (min-width: 480px) {
+.text-flow {
+    line-height: 2.464rem;
+}
+}
+@media only screen and (min-width: 870px) {
+.text-flow {
+    font-size: 1.608rem;
+}
+}
+@media only screen and (min-width: 510px) {
+.text-flow {
+    line-height: 2.568rem;
+}
+}
+@media only screen and (min-width: 900px) {
+.text-flow {
+    font-size: 1.632rem;
+}
+}
+@media only screen and (min-width: 540px) {
+.text-flow {
+    line-height: 2.672rem;
+}
+}
+@media only screen and (min-width: 930px) {
+.text-flow {
+    font-size: 1.656rem;
+}
+}
+@media only screen and (min-width: 570px) {
+.text-flow {
+    line-height: 2.776rem;
+}
+}
+@media only screen and (min-width: 960px) {
+.text-flow {
+    font-size: 1.68rem;
+}
+}
+@media only screen and (min-width: 600px) {
+.text-flow {
+    line-height: 2.88rem;
+}
+}
+
+/* jshint ignore:end */
