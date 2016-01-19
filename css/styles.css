@@ -11,8 +11,8 @@ Legend
  Index
 =================================================================================
 1. HTML Reset:          - HTML reset by normalize.css v3.0.3
-2. Helpers              * helper classes to simplify development                    
-3. Grid System:         * basic grid system definitions                             
+2. Grid System:         * basic grid system definitions                             
+3. Helpers              * helper classes to simplify development                    
 4. Base Styles          - opinionated defaults
 5. Print Styles         - Inlined to avoid the additional HTTP request: http://www.phpied.com/delay-loading-your-print-css/
 6. Author's Styles      - styles pertaining to this theme 
@@ -451,351 +451,6 @@ table {
 td,
 th {
   padding: 0;
-}
-
-/* jshint ignore:end */
-/* jshint ignore:start */
-/* 4. Helpers
- * - helper classes to simplify development
- * - 10/07/2015 have removed all instances of !important for "better practice" 
- *   and will have to test the classes throughout development
- */
-/* line 10, ../sass/components/_helpers.scss */
-.alert {
-  font-family: inherit;
-  border: 1px solid transparent;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  padding: 15px;
-}
-
-/* line 20, ../sass/components/_helpers.scss */
-.alert-success {
-  background-color: #DFF0D8;
-  border-color: #D6E9C6;
-  color: #468847;
-}
-
-/* line 26, ../sass/components/_helpers.scss */
-.alert-success b,
-.alert-success strong {
-  color: #468847;
-}
-
-/* line 31, ../sass/components/_helpers.scss */
-.alert-error {
-  background-color: #F2DEDE;
-  border-color: #EED3D7;
-  color: #B94A48;
-}
-
-/* line 37, ../sass/components/_helpers.scss */
-.alert-error .alert-link {
-  color: #953B39;
-}
-
-/* line 41, ../sass/components/_helpers.scss */
-.alert .alert-link {
-  font-weight: bold;
-}
-
-/* line 45, ../sass/components/_helpers.scss */
-.alert-error b,
-.alert-error strong {
-  color: #B94A48;
-}
-
-/* line 50, ../sass/components/_helpers.scss */
-.alert p {
-  margin-bottom: 0;
-}
-
-/* line 54, ../sass/components/_helpers.scss */
-.alert-info {
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  color: #31708f;
-}
-
-/* line 60, ../sass/components/_helpers.scss */
-.alert-warning {
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-  color: #8a6d3b;
-}
-
-/* line 66, ../sass/components/_helpers.scss */
-.bg {
-  background: #CCC;
-  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.66);
-  -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.66);
-  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.66);
-}
-
-/* line 73, ../sass/components/_helpers.scss */
-.block {
-  display: block;
-}
-
-/* line 77, ../sass/components/_helpers.scss */
-.relative {
-  position: relative;
-}
-
-/* line 81, ../sass/components/_helpers.scss */
-.no-border {
-  border: none;
-}
-
-/* line 85, ../sass/components/_helpers.scss */
-.red {
-  border: solid 1px red;
-}
-
-/* line 89, ../sass/components/_helpers.scss */
-.remove-filters {
-  border: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-}
-
-/* line 97, ../sass/components/_helpers.scss */
-.no-margin {
-  margin: 0;
-}
-
-/* line 101, ../sass/components/_helpers.scss */
-.no-margin-top {
-  margin-top: 0;
-}
-
-/* line 105, ../sass/components/_helpers.scss */
-.no-margin-right {
-  margin-right: 0;
-}
-
-/* line 109, ../sass/components/_helpers.scss */
-.no-margin-bottom {
-  margin-bottom: 0;
-}
-
-/* line 113, ../sass/components/_helpers.scss */
-.no-margin-left {
-  margin-left: 0;
-}
-
-/* line 117, ../sass/components/_helpers.scss */
-.no-padding {
-  padding: 0;
-}
-
-/* line 121, ../sass/components/_helpers.scss */
-.no-padding-top {
-  padding-top: 0;
-}
-
-/* line 125, ../sass/components/_helpers.scss */
-.no-padding-right {
-  padding-right: 0;
-}
-
-/* line 129, ../sass/components/_helpers.scss */
-.no-padding-bottom {
-  padding-bottom: 0;
-}
-
-/* line 133, ../sass/components/_helpers.scss */
-.no-padding-left {
-  padding-left: 0;
-}
-
-/* line 137, ../sass/components/_helpers.scss */
-.left {
-  float: left;
-}
-
-/* line 141, ../sass/components/_helpers.scss */
-.right {
-  float: right;
-}
-
-/* line 145, ../sass/components/_helpers.scss */
-.center {
-  margin-left: auto;
-  margin-right: auto;
-  float: none;
-}
-
-/* line 151, ../sass/components/_helpers.scss */
-.text-left {
-  text-align: left;
-}
-
-/* line 155, ../sass/components/_helpers.scss */
-.text-right {
-  text-align: right;
-}
-
-/* line 159, ../sass/components/_helpers.scss */
-.text-center {
-  text-align: center;
-}
-
-/* line 163, ../sass/components/_helpers.scss */
-.last {
-  margin-right: 0;
-}
-
-/* line 167, ../sass/components/_helpers.scss */
-.no-float {
-  float: none;
-}
-
-/* line 171, ../sass/components/_helpers.scss */
-.clear {
-  clear: both;
-}
-
-/* line 175, ../sass/components/_helpers.scss */
-.hide {
-  display: none;
-}
-
-/* line 179, ../sass/components/_helpers.scss */
-.hide-desktop {
-  display: none;
-}
-
-/* line 183, ../sass/components/_helpers.scss */
-.hide-tablet {
-  display: block;
-}
-
-/* line 187, ../sass/components/_helpers.scss */
-.hide-sml-tablet {
-  display: block;
-}
-
-/* line 191, ../sass/components/_helpers.scss */
-.hide-mobile {
-  display: block;
-}
-
-/* line 195, ../sass/components/_helpers.scss */
-.hidden {
-  visibility: hidden;
-}
-
-/* line 199, ../sass/components/_helpers.scss */
-.show-tablet {
-  display: none;
-}
-
-/* line 203, ../sass/components/_helpers.scss */
-.show-sml-tablet {
-  display: none;
-}
-
-/* line 207, ../sass/components/_helpers.scss */
-.show-mobile {
-  display: none;
-}
-
-/* line 211, ../sass/components/_helpers.scss */
-.embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-/* line 219, ../sass/components/_helpers.scss */
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/*
- * Hide visually and from screen readers:
- */
-/* line 234, ../sass/components/_helpers.scss */
-.hidden {
-  display: none;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
-/* line 244, ../sass/components/_helpers.scss */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-/* line 262, ../sass/components/_helpers.scss */
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-/* line 277, ../sass/components/_helpers.scss */
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats 
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-/* line 294, ../sass/components/_helpers.scss */
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
-}
-
-/* line 302, ../sass/components/_helpers.scss */
-.clearfix:after {
-  clear: both;
 }
 
 /* jshint ignore:end */
@@ -1670,6 +1325,351 @@ img {
 }
 /* jshint ignore:end */
 /* jshint ignore:start */
+/* 4. Helpers
+ * - helper classes to simplify development
+ * - 10/07/2015 have removed all instances of !important for "better practice" 
+ *   and will have to test the classes throughout development
+ */
+/* line 10, ../sass/components/_helpers.scss */
+.alert {
+  font-family: inherit;
+  border: 1px solid transparent;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+/* line 20, ../sass/components/_helpers.scss */
+.alert-success {
+  background-color: #DFF0D8;
+  border-color: #D6E9C6;
+  color: #468847;
+}
+
+/* line 26, ../sass/components/_helpers.scss */
+.alert-success b,
+.alert-success strong {
+  color: #468847;
+}
+
+/* line 31, ../sass/components/_helpers.scss */
+.alert-error {
+  background-color: #F2DEDE;
+  border-color: #EED3D7;
+  color: #B94A48;
+}
+
+/* line 37, ../sass/components/_helpers.scss */
+.alert-error .alert-link {
+  color: #953B39;
+}
+
+/* line 41, ../sass/components/_helpers.scss */
+.alert .alert-link {
+  font-weight: bold;
+}
+
+/* line 45, ../sass/components/_helpers.scss */
+.alert-error b,
+.alert-error strong {
+  color: #B94A48;
+}
+
+/* line 50, ../sass/components/_helpers.scss */
+.alert p {
+  margin-bottom: 0;
+}
+
+/* line 54, ../sass/components/_helpers.scss */
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+
+/* line 60, ../sass/components/_helpers.scss */
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+
+/* line 66, ../sass/components/_helpers.scss */
+.bg {
+  background: #CCC;
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.66);
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.66);
+}
+
+/* line 73, ../sass/components/_helpers.scss */
+.block {
+  display: block;
+}
+
+/* line 77, ../sass/components/_helpers.scss */
+.relative {
+  position: relative;
+}
+
+/* line 81, ../sass/components/_helpers.scss */
+.no-border {
+  border: none;
+}
+
+/* line 85, ../sass/components/_helpers.scss */
+.red {
+  border: solid 1px red;
+}
+
+/* line 89, ../sass/components/_helpers.scss */
+.remove-filters {
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* line 97, ../sass/components/_helpers.scss */
+.no-margin {
+  margin: 0;
+}
+
+/* line 101, ../sass/components/_helpers.scss */
+.no-margin-top {
+  margin-top: 0;
+}
+
+/* line 105, ../sass/components/_helpers.scss */
+.no-margin-right {
+  margin-right: 0;
+}
+
+/* line 109, ../sass/components/_helpers.scss */
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+/* line 113, ../sass/components/_helpers.scss */
+.no-margin-left {
+  margin-left: 0;
+}
+
+/* line 117, ../sass/components/_helpers.scss */
+.no-padding {
+  padding: 0;
+}
+
+/* line 121, ../sass/components/_helpers.scss */
+.no-padding-top {
+  padding-top: 0;
+}
+
+/* line 125, ../sass/components/_helpers.scss */
+.no-padding-right {
+  padding-right: 0;
+}
+
+/* line 129, ../sass/components/_helpers.scss */
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+/* line 133, ../sass/components/_helpers.scss */
+.no-padding-left {
+  padding-left: 0;
+}
+
+/* line 137, ../sass/components/_helpers.scss */
+.left {
+  float: left;
+}
+
+/* line 141, ../sass/components/_helpers.scss */
+.right {
+  float: right;
+}
+
+/* line 145, ../sass/components/_helpers.scss */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+/* line 151, ../sass/components/_helpers.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 155, ../sass/components/_helpers.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 159, ../sass/components/_helpers.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 163, ../sass/components/_helpers.scss */
+.last {
+  margin-right: 0;
+}
+
+/* line 167, ../sass/components/_helpers.scss */
+.no-float {
+  float: none;
+}
+
+/* line 171, ../sass/components/_helpers.scss */
+.clear {
+  clear: both;
+}
+
+/* line 175, ../sass/components/_helpers.scss */
+.hide {
+  display: none;
+}
+
+/* line 179, ../sass/components/_helpers.scss */
+.hide-desktop {
+  display: none;
+}
+
+/* line 183, ../sass/components/_helpers.scss */
+.hide-tablet {
+  display: block;
+}
+
+/* line 187, ../sass/components/_helpers.scss */
+.hide-sml-tablet {
+  display: block;
+}
+
+/* line 191, ../sass/components/_helpers.scss */
+.hide-mobile {
+  display: block;
+}
+
+/* line 195, ../sass/components/_helpers.scss */
+.hidden {
+  visibility: hidden;
+}
+
+/* line 199, ../sass/components/_helpers.scss */
+.show-tablet {
+  display: none;
+}
+
+/* line 203, ../sass/components/_helpers.scss */
+.show-sml-tablet {
+  display: none;
+}
+
+/* line 207, ../sass/components/_helpers.scss */
+.show-mobile {
+  display: none;
+}
+
+/* line 211, ../sass/components/_helpers.scss */
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* line 219, ../sass/components/_helpers.scss */
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Hide visually and from screen readers:
+ */
+/* line 234, ../sass/components/_helpers.scss */
+.hidden {
+  display: none;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+/* line 244, ../sass/components/_helpers.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+/* line 262, ../sass/components/_helpers.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+/* line 277, ../sass/components/_helpers.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats 
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+/* line 294, ../sass/components/_helpers.scss */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+/* line 302, ../sass/components/_helpers.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* jshint ignore:end */
+/* jshint ignore:start */
 /* 3. Base Styles           
  * - opinionated defaults
  */
@@ -1913,9 +1913,19 @@ textarea {
 /* 6. Author's Styles                       
  * - styles pertaining to this theme
  */
+/* line 41, ../sass/styles.scss */
+pre {
+  overflow: none !important;
+}
+
 /* structure */
-/* line 44, ../sass/styles.scss */
+/* line 48, ../sass/styles.scss */
 html {
+  height: 100%;
+}
+
+/* line 52, ../sass/styles.scss */
+#search {
   background-color: #f79621;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF79621', endColorstr='#FFF9C667');
@@ -1925,16 +1935,28 @@ html {
   background-image: -moz-linear-gradient(top, #f79621 0%, #f9c667 100%);
   background-image: -webkit-linear-gradient(top, #f79621 0%, #f9c667 100%);
   background-image: linear-gradient(to bottom, #f79621 0%, #f9c667 100%);
-  height: 100%;
+}
+
+/* line 63, ../sass/styles.scss */
+#results {
+  background-color: #0fb4e7;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF0FB4E7', endColorstr='#FFA9E4F7');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmYjRlNyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2E5ZTRmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0fb4e7), color-stop(100%, #a9e4f7));
+  background-image: -moz-linear-gradient(top, #0fb4e7 0%, #a9e4f7 100%);
+  background-image: -webkit-linear-gradient(top, #0fb4e7 0%, #a9e4f7 100%);
+  background-image: linear-gradient(to bottom, #0fb4e7 0%, #a9e4f7 100%);
 }
 
 /* logo */
-/* line 59, ../sass/styles.scss */
+/* line 77, ../sass/styles.scss */
 object svg {
   color-fill: #fff;
 }
 
-/* line 63, ../sass/styles.scss */
+/* line 81, ../sass/styles.scss */
 object {
   padding: 15px 0 0 0;
   width: 64px;
@@ -1945,14 +1967,14 @@ object {
   color-fill: #fff;
 }
 
-/* line 73, ../sass/styles.scss */
+/* line 91, ../sass/styles.scss */
 h1 {
   font-size: 26px;
   float: left;
   margin: 20px 0 0 10px;
 }
 
-/* line 79, ../sass/styles.scss */
+/* line 97, ../sass/styles.scss */
 h1 svg {
   width: 45px;
   height: 45px;
@@ -1961,15 +1983,43 @@ h1 svg {
 }
 
 /* typography */
-/* line 89, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 h2 {
   font-size: 36px;
+  float: left;
+}
+
+/* line 112, ../sass/styles.scss */
+h3 {
+  font-style: italic;
+  font-size: 20px;
+}
+
+/* line 117, ../sass/styles.scss */
+.temp {
+  font-size: 60px;
 }
 
 /**
  * forms
  */
-/* line 98, ../sass/styles.scss */
+/* line 126, ../sass/styles.scss */
+input[type=submit] {
+  border: solid 1px #fff;
+  border-radius: 20px;
+  background: none;
+  color: #fff;
+  padding: 8px 20px;
+  font-weight: bold;
+  transition: all 0.15s ease-in-out 0s;
+}
+/* line 134, ../sass/styles.scss */
+input[type=submit]:hover {
+  background: #fff;
+  color: #F7AC41;
+}
+
+/* line 140, ../sass/styles.scss */
 input[type=text] {
   width: 100%;
   border: none;
@@ -1977,7 +2027,7 @@ input[type=text] {
   border-left: none;
   border-right: none;
   border-bottom: solid #fff 1px;
-  font-size: 36px;
+  font-size: 28px;
   color: #fff;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
@@ -1991,34 +2041,100 @@ input[type=text] {
   padding: 2% 0 2% 0;
 }
 
-/* line 119, ../sass/styles.scss */
+/* line 161, ../sass/styles.scss */
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 124, ../sass/styles.scss */
+/* line 166, ../sass/styles.scss */
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 129, ../sass/styles.scss */
+/* line 171, ../sass/styles.scss */
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 134, ../sass/styles.scss */
+/* line 176, ../sass/styles.scss */
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 139, ../sass/styles.scss */
+/* line 181, ../sass/styles.scss */
 :placeholder-shown {
   /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
   color: rgba(255, 255, 255, 0.3);
+}
+
+/* buttons */
+/* line 189, ../sass/styles.scss */
+.btn {
+  border: solid 1px #fff;
+  border-radius: 20px;
+  background: none;
+  color: #fff;
+  padding: 8px 20px;
+  width: 90px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 15px 10px 0 0;
+  display: block;
+  text-align: center;
+  transition: all 0.15s ease-in-out 0s;
+}
+/* line 202, ../sass/styles.scss */
+.btn:hover {
+  background: #fff;
+  color: #1BB7E8;
+}
+
+/* images */
+/* line 211, ../sass/styles.scss */
+.flag {
+  margin: 15px 0 0 15px;
+  float: left;
+}
+
+/* line 216, ../sass/styles.scss */
+.icon {
+  width: 80%;
+  height: 80%;
+}
+
+/* weather card */
+/* line 224, ../sass/styles.scss */
+.card {
+  background: #FBFBFB;
+  padding: 4%;
+}
+/* line 227, ../sass/styles.scss */
+.card ul {
+  list-style: none;
+}
+/* line 229, ../sass/styles.scss */
+.card ul .day {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 234, ../sass/styles.scss */
+.card ul .month {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* line 238, ../sass/styles.scss */
+.card ul .desc {
+  font-style: italic;
+}
+/* line 241, ../sass/styles.scss */
+.card ul .temp {
+  font-weight: bold;
+  font-size: 30px;
 }
 
 /* jshint ignore:end */
