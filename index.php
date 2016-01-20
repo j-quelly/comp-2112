@@ -13,7 +13,7 @@
     <body>
     
         <header>
-            <div class="xl-12">
+            <div class="xl-6 s-8">
                 <h1>
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="246 -246 612 612" style="enable-background:new 246 -246 612 612;" xml:space="preserve">
@@ -40,27 +40,15 @@
                     </svg>                  
                     Weatherly
                 </h1>
+            </div>
+            <div class="xl-6 s-4">
+                <a href="/" id="clear-results" class="hidden btn right">Clear</a>
             </div>  
-        </header> 
+        </header>  
     
         
         <main>
-            <section class="container"> 
-                <noscript> 
-                    <div class="xl-12">
-                        <div class="alert alert-info">
-                            <p><strong>FYI:</strong> Enabling Javascript will improve your experience.</p>
-                        </div>
-                    </div> 
-                </noscript>
-                <!--[if lt IE 8]>
-                <div class="xl-12">
-                    <div class="alert alert-error">
-                        <p><strong>Warning:</strong> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank" rel="nofollow">upgrade your browser</a> to improve your experience.</p>
-                    </div>
-                </div> 
-                <![endif]-->
-
+            <section class="container" id="search-container"> 
                 <div class="xl-12">
                     <h2>What's your city?</h2>
                 </div>
@@ -70,10 +58,79 @@
                         <input type="text" name="q" id="q" placeholder="Barrie, Ontario, Canada" required>
                     </div>
                     <div class="xl-12 text-right"> 
-                        <input type="submit" value="Search"> 
+                        <input type="submit" value="See Results"> 
                     </div>
                 </form>   
 
             </section>     
+
+            <section class="container"> 
+            
+                <div class="xl-12">
+                    <h2></h2>
+                    <img src="http://openweathermap.org/images/flags/.png" class="flag" />
+                </div>
+
+                <div class="xl-12 no-padding-bottom">
+                    <h3></h3>
+                </div>
+
+                <div class="xl-2 s-6 no-padding-top text-center">
+                    <img src="http://openweathermap.org/img/w/.png" alt=""  class="icon" />
+                </div>
+
+                <div class="xl-2 s-6 no-padding-top">
+                    <h5>Current</h5>
+                    <h5 class="temp"></h5>                                              
+                </div>
+
+                <div class="xl-2 s-6 text-center">
+                    <h5>Max Temp</h5>
+                    <h5><?php echo convertKtoC($daily['main']['temp_max']); ?>&deg;C</h5>                                               
+                </div>
+
+                <div class="xl-2 s-6 text-center">
+                    <h5>Min Temp</h5>
+                    <h5><?php echo convertKtoC($daily['main']['temp_min']); ?>&deg;C</h5>                                               
+                </div>
+
+                <div class="xl-2 s-6 text-center">
+                    <h5>Humidity</h5>
+                    <h5><?php echo $daily['main']['humidity']; ?>%</h5>                                             
+                </div>
+
+                <div class="xl-2 s-6 text-center">
+                    <h5>Wind</h5>
+                    <h5><?php echo $daily['wind']['speed']; ?> m/s</h5>                                             
+                </div>                                                                              
+            
+                <div class="xl-12 no-padding-bottom">
+                    <h2>Forecast<h2>
+                </div>      
+
+            <?php
+            // loop thru forecast array
+            foreach($forecast['list'] as $key => $val) {                            
+            // calculate average temp
+            $avg = ($val['temp']['min'] +  $val['temp']['max']) / 2;
+            ?>
+            <div class="xl-2 text-center">
+            <div class="card">
+            <ul>
+            <li class="day"><?php echo gmdate("D", $val['dt']); ?></li> 
+            <li class="month"><?php echo gmdate("M j", $val['dt']); ?></li>
+            <li><img src="http://openweathermap.org/img/w/<?php echo $val['weather'][0]['icon']; ?>.png" alt="<?php echo ucfirst($val['weather'][0]['description']); ?>"  /></li>
+            <li class="desc"><?php echo ucfirst($val['weather'][0]['description']); ?></li>
+            <li class="temp"><?php echo convertKtoC($avg); ?>&deg;C</li>
+            <li>Min Temp: <?php echo convertKtoC($val['temp']['min']); ?>&deg;C</li>
+            <li>Max Temp: <?php echo convertKtoC($val['temp']['max']); ?>&deg;C</li>
+            <li>Humidity: <?php echo $val['humidity']; ?>%</li> 
+            <li>Wind: <?php echo $val['speed']; ?> m/s</li>
+            </ul> 
+            </div>
+            </div>                      
+            <?php } ?>
+            <?php } ?>
+            </section>  
 
 <?php include "includes/footer.php" ?>           
