@@ -72,53 +72,37 @@
         
         <main>
             <section class="container"> 
-                <noscript> 
-                    <div class="xl-12">
-                        <div class="alert alert-info">
-                            <p><strong>FYI:</strong> Enabling Javascript will improve your experience.</p>
-                        </div>
-                    </div> 
-                </noscript>
-
-                <!--[if lt IE 8]>
-                <div class="xl-12">
-                    <div class="alert alert-error">
-                        <p><strong>Warning:</strong> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank" rel="nofollow">upgrade your browser</a> to improve your experience.</p>
-                    </div>
-                </div> 
-                <![endif]--> 
-
-				<?php if ($daily) { ?>
-                <div class="xl-12">
-                    <h2><?php echo $daily['name']; ?>, <?php echo $daily['sys']['country']; ?></h2>
-                    <img src="http://openweathermap.org/images/flags/<?php echo strtolower($daily['sys']['country']); ?>.png" class="flag" />
-                </div>
-                <div class="xl-12 no-padding-bottom">
-									<h3><?php echo ucfirst($daily['weather'][0]['description']); ?></h3>
-                </div>
-                <div class="xl-2 s-6 no-padding-top text-center">
-										<img src="http://openweathermap.org/img/w/<?php echo $daily['weather'][0]['icon']; ?>.png" alt="<?php echo ucfirst($daily['weather'][0]['description']); ?>"  class="icon" />
-                </div>
-                <div class="xl-2 s-6 no-padding-top">
-									<h5>Current</h5>
-									<h5 class="temp"><?php echo convertKtoC($daily['main']['temp']); ?>&deg;C</h5>												
-                </div>
-                <div class="xl-2 s-6 text-center">
-									<h5>Max Temp</h5>
-									<h5><?php echo convertKtoC($daily['main']['temp_max']); ?>&deg;C</h5>												
-                </div>
-                <div class="xl-2 s-6 text-center">
-									<h5>Min Temp</h5>
-									<h5><?php echo convertKtoC($daily['main']['temp_min']); ?>&deg;C</h5>												
-                </div>
-                <div class="xl-2 s-6 text-center">
-									<h5>Humidity</h5>
-									<h5><?php echo $daily['main']['humidity']; ?>%</h5>												
-                </div>
-                <div class="xl-2 s-6 text-center">
-									<h5>Wind</h5>
-									<h5><?php echo $daily['wind']['speed']; ?> m/s</h5>	 											
-                </div>	                	                	                	                
+							<?php if ($daily) { ?>
+	                <div class="xl-12">
+	                    <h2><?php echo $daily['name']; ?>, <?php echo $daily['sys']['country']; ?></h2>
+	                    <img src="http://openweathermap.org/images/flags/<?php echo strtolower($daily['sys']['country']); ?>.png" class="flag" />
+	                </div>
+	                <div class="xl-12 no-padding-bottom">
+										<h3><?php echo ucfirst($daily['weather'][0]['description']); ?></h3>
+	                </div>
+	                <div class="xl-2 s-6 no-padding-top text-center">
+											<img src="http://openweathermap.org/img/w/<?php echo $daily['weather'][0]['icon']; ?>.png" alt="<?php echo ucfirst($daily['weather'][0]['description']); ?>"  class="icon" />
+	                </div>
+	                <div class="xl-2 s-6 no-padding-top">
+										<h5>Current</h5>
+										<h5 class="temp"><?php echo convertKtoC($daily['main']['temp']); ?>&deg;C</h5>												
+	                </div>
+	                <div class="xl-2 s-6 text-center">
+										<h5>Max Temp</h5>
+										<h5><?php echo convertKtoC($daily['main']['temp_max']); ?>&deg;C</h5>												
+	                </div>
+	                <div class="xl-2 s-6 text-center">
+										<h5>Min Temp</h5>
+										<h5><?php echo convertKtoC($daily['main']['temp_min']); ?>&deg;C</h5>												
+	                </div>
+	                <div class="xl-2 s-6 text-center">
+										<h5>Humidity</h5>
+										<h5><?php echo $daily['main']['humidity']; ?>%</h5>												
+	                </div>
+	                <div class="xl-2 s-6 text-center">
+										<h5>Wind</h5>
+										<h5><?php echo $daily['wind']['speed']; ?> m/s</h5>	 											
+	                </div>	                	                	                	                
 				<?php } else { ?>   
 					<div class="xl-12">		                 
 						<h1>Oops!</h1>
