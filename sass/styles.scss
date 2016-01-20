@@ -14,8 +14,8 @@ Legend
  Index
 =================================================================================
 1. HTML Reset:          - HTML reset by normalize.css v3.0.3
-2. Helpers              * helper classes to simplify development                    
-3. Grid System:         * basic grid system definitions                             
+2. Grid System:         * basic grid system definitions                             
+3. Helpers              * helper classes to simplify development                    
 4. Base Styles          - opinionated defaults
 5. Print Styles         - Inlined to avoid the additional HTTP request: http://www.phpied.com/delay-loading-your-print-css/
 6. Author's Styles      - styles pertaining to this theme 
@@ -23,10 +23,10 @@ Legend
 
 // 1. HTML Reset:           - HTML reset by normalize.css v3.0.3
 @import "components/normalize";
-// 2. Helpers               * helper classes to simplify development                    (review and test these)
-@import "components/helpers";
-// 3. Grid System:          - basic grid system definitions
+// 2. Grid System:          - basic grid system definitions
 @import "components/grid";
+// 3. Helpers               * helper classes to simplify development                    (review and test these)
+@import "components/helpers";
 // 4. Base Styles           - opinionated defaults
 @import "components/base";
 // 5. Print Styles          - Inlined to avoid the additional HTTP request
@@ -38,10 +38,18 @@ Legend
  * - styles pertaining to this theme
  */
 
+pre {
+    overflow: none !important;
+}
+
 
 /* structure */
 
 html {
+    height: 100%;
+}
+
+#search {
     // Needs latest Compass, add '@import "compass"' to your scss
     // Permalink - use to edit and share this gradient:
     // http://colorzilla.com/gradient-editor/#f79621+0,f9c667+100
@@ -50,7 +58,17 @@ html {
     @include filter-gradient(#f79621, #f9c667, vertical);
     // IE6-9
     @include background-image(linear-gradient(top, #f79621 0%, #f9c667 100%));
-    height: 100%;
+}
+
+#results {
+    // Needs latest Compass, add '@import "compass"' to your scss
+    // Permalink - use to edit and share this gradient:
+    // http://colorzilla.com/gradient-editor/#0fb4e7+0,a9e4f7+100
+    background-color: rgb(15, 180, 231);
+    // Old browsers
+    @include filter-gradient(#0fb4e7, #a9e4f7, vertical);
+    // IE6-9
+    @include background-image(linear-gradient(top, rgba(15, 180, 231, 1) 0%, rgba(169, 228, 247, 1) 100%));
 }
 
 
@@ -88,12 +106,36 @@ h1 svg {
 
 h2 {
     font-size: 36px;
+    float: left;
+}
+
+h3 {
+    font-style: italic;
+    font-size: 20px;
+}
+
+.temp {
+    font-size: 60px;
 }
 
 
 /**
  * forms
  */
+
+input[type=submit] {
+    border: solid 1px #fff;
+    border-radius: 20px;
+    background: none;
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: all 0.15s ease-in-out 0s;
+    &:hover {
+        background: #fff;
+        color: #F7AC41;
+    }
+}
 
 input[type=text] {
     width: 100%;
@@ -102,7 +144,7 @@ input[type=text] {
     border-left: none;
     border-right: none;
     border-bottom: solid #fff 1px;
-    font-size: 36px;
+    font-size: 28px;
     color: #fff;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
@@ -139,6 +181,68 @@ input[type=text] {
 :placeholder-shown {
     /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
     color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* buttons */
+
+.btn {
+    border: solid 1px #fff;
+    border-radius: 20px;
+    background: none;
+    color: #fff;
+    padding: 8px 20px;
+    width: 90px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 15px 10px 0 0;
+    display: block;
+    text-align: center;
+    transition: all 0.15s ease-in-out 0s;
+    &:hover {
+        background: #fff;
+        color: #1BB7E8;
+    }
+}
+
+
+/* images */
+
+.flag {
+    margin: 15px 0 0 15px;
+    float: left;
+}
+
+.icon {
+    width: 80%;
+    height: 80%;
+}
+
+
+/* weather card */
+
+.card {
+    background: #FBFBFB;
+    padding: 4%;
+    ul {
+        list-style: none;
+        .day {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .month {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .desc {
+            font-style: italic;
+        }
+        .temp {
+            font-weight: bold;
+            font-size: 30px;
+        }
+    }
 }
 
 

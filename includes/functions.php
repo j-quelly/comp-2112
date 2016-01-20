@@ -1,14 +1,15 @@
 <?php
 	// function to convert kelvins to celcius
-	function covertKtoC($kelvin) {
+	function convertKtoC($kelvin) {
 		return number_format($kelvin - 273.15); 
 	}
 
 	// get data from open weather map REST API
-	function getData($q) {
+	function getData($q, $type) {
 		// API key
 		$appid = '5ec25e4aa9a5d4e41d545224fcf5d367';
-		$service_url = 'api.openweathermap.org/data/2.5/weather?q='.$q.'&APPID='.$appid;
+		// get today's weather or forecast
+		$service_url = ($type == 'daily' ? 'api.openweathermap.org/data/2.5/weather?q='.$q.'&APPID='.$appid : 'api.openweathermap.org/data/2.5/forecast/daily?q='.$q.'&cnt=6&APPID='.$appid);
 
 		// get data		
 		$curl = curl_init($service_url);
