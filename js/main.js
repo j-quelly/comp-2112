@@ -1,15 +1,17 @@
 /**
  * Unobtrusive client-side scripting for comp 2112
+ * * unobtrusive 
  */
 
+
 // store form object in a var to reference later
-var searchForm = document.getElementById('search');
+var searchForm = document.getElementById('search-form');
 
 // when the form is submit, invoke a function
-searchForm.onsubmit = function(event) {
+searchForm.onsubmit = function(e) {
 
     // prevent the form from submitting 
-    event.preventDefault();
+    e.preventDefault();
 
     // capture form data
     var data = document.getElementById('q').value;
@@ -24,7 +26,7 @@ searchForm.onsubmit = function(event) {
 
     // get current weather data
     var current = getCurrent(data);
-    var forecast = getForecast(data);
+    var forecast = getForecast(data, 6);
 
 
     /**
@@ -38,14 +40,65 @@ searchForm.onsubmit = function(event) {
     document.getElementById('search-container').className = 'hidden';
 
     // display a button to clear search results
-    var clearBtn = document.getElementById('clear-results');
-    clearBtn.className = '';
-    clearBtn.className = 'btn right';
+    document.getElementById('clear-results').className = 'btn right';
 
-    // display the results
 
+    /**
+     * Display the results
+     * 
+     */
+
+    // location & flag
+    new Node('div', 'search-results').setClass('xl-12').setId('location').append();
+    new Node('h2', 'location').setData(current.name).append();
+    new Node('img', 'location').setPath('http://openweathermap.org/images/flags/' + current.sys.country.toLowerCase() + '.png').setClass('flag').append();
+
+    // description
+    new Node('div', 'search-results').setClass('xl-12 no-padding-bottom').setId('description').append();
+    new Node('h3', 'description').setData(ucfirst(current.weather[0].description)).append();
+
+    // weather icon
+    new Node('div', 'search-results').setClass('xl-2 s-6 no-padding-top text-center').setId('weather-icon').append();
+    new Node('img', 'weather-icon').setPath('http://openweathermap.org/img/w/' + current.weather[0].icon + '.png').setClass('icon').append();
+
+    // current temp
+    new Node('div', 'search-results').setClass('xl-2 s-6 no-padding-top').setId('current').append();
+    new Node('h5', 'current').setData('Current').append();
+    new Node('h5', 'current').setData(convertKtoC(current.main.temp) + '°C').setClass('temp').append();
+
+    // max temp
+    new Node('div', 'search-results').setClass('xl-2 s-6 text-center').setId('maxTemp').append();
+    new Node('h5', 'maxTemp').setData('Max Temp').append();
+    new Node('h5', 'maxTemp').setData(convertKtoC(current.main.temp_max) + '°C').append();
+
+    // min temp
+    new Node('div', 'search-results').setClass('xl-2 s-6 text-center').setId('minTemp').append();
+    new Node('h5', 'minTemp').setData('Min Temp').append();
+    new Node('h5', 'minTemp').setData(convertKtoC(current.main.temp_min) + '°C').append();
+
+    // humidity
+    new Node('div', 'search-results').setClass('xl-2 s-6 text-center').setId('humidity').append();
+    new Node('h5', 'humidity').setData('Humidity').append();
+    new Node('h5', 'humidity').setData(current.main.humidity + '%').append();
+
+    // wind
+    new Node('div', 'search-results').setClass('xl-2 s-6 text-center').setId('wind').append();
+    new Node('h5', 'wind').setData('Humidity').append();
+    new Node('h5', 'wind').setData(current.wind.speed + ' m/s').append();
+
+    // forecast
+    new Node('div', 'search-results').setClass('xl-12 no-padding-bottom').setId('forecast').append();
+    new Node('h2', 'forecast').setData('Forecast').append();
+
+    console.log(forecast.list.length);
+
+    // loop thru data
+    for (var i = 0; i < forecast.list.length; i++) {
+
+    }
 
 }
+
 
 
 /**
@@ -72,8 +125,16 @@ function getCurrent(arg) {
     // send the request to the server
     xhr.send();
 
+    // parse the returned data
+    if ('JSON' in window) {
+        var data = JSON.parse(xhr.responseText);
+    } else {
+        // code for OLDER VERSIONS OF IE
+        var data = eval(xhr.responseText);
+    }
+
     // return the data
-    return xhr.responseText;
+    return data;
 }
 
 // a function to GET the forecast
@@ -96,8 +157,16 @@ function getForecast(arg, count) {
     // send the request to the server
     xhr.send();
 
+    // parse the returned data
+    if ('JSON' in window) {
+        var data = JSON.parse(xhr.responseText);
+    } else {
+        // code for OLDER VERSIONS OF IE
+        var data = eval(xhr.responseText);
+    }
+
     // return the data
-    return xhr.responseText;
+    return data;
 }
 
 // a function to prepare the string for better search results
@@ -111,12 +180,113 @@ function assembleQuery(data) {
         // replace all spaces from the first index of the generated array with no space
         data = data[0].replace(' ', '');
 
-        // else, if the captured data contains a space
-    } else if (data.indexOf(' ') > -1) {
+
+    } else
+
+    // if the captured data contains a space
+    if (data.indexOf(' ') > -1) {
 
         // replace all spaces from the string
         data = data.replace(' ', '');
     }
 
     return data;
+}
+
+// a function to capitalize the first letter of a string
+function ucfirst(arg) {
+    return arg.charAt(0).toUpperCase() + arg.slice(1);
+}
+
+// a function to convert kelvins to celcius
+function convertKtoC(kelvin) {
+    var celcius = kelvin - 273.15;
+    return Math.round(celcius);
+}
+
+// define a class for creating nodes in the DOM tree
+var Node = function(childElm, parentElem) {
+
+    // selector
+    this.parentElement = parentElem;
+
+    // default to a div element
+    this.element = childElm || 'div';
+
+    // default to an empty text node
+    this.textNode = '';
+
+    // default to no class
+    this.cName = '';
+
+    // default to no id
+    this.Id = '';
+
+    // set path for image elements
+    this.path = '';
+};
+
+
+/**
+ * Node class methods
+ */
+
+// set the text node in the tree
+Node.prototype.setData = function(data) {
+    this.textNode = data;
+    return this;
+};
+
+// set the className
+Node.prototype.setClass = function(cName) {
+    this.cName = cName;
+    return this;
+};
+
+// set the id
+Node.prototype.setId = function(Id) {
+    this.Id = Id;
+    return this;
+};
+
+// set the path
+Node.prototype.setPath = function(path) {
+    this.path = path;
+    return this;
+};
+
+// create the element
+Node.prototype.append = function() {
+    // create the element
+    var elem = document.createElement(this.element);
+
+    // create the node
+    if (this.textNode) {
+        var node = document.createTextNode(this.textNode);
+        // append the node
+        elem.appendChild(node);
+    }
+
+    // if class has been specified
+    if (this.cName) {
+        elem.className = this.cName;
+    }
+
+    // if an ID has been specified
+    if (this.Id) {
+        elem.id = this.Id;
+    }
+
+    // set image src attribute
+    if (this.path) {
+        elem.src = this.path;
+    }
+
+    // find the target element in the DOM tree
+    var target = document.getElementById(this.parentElement);
+
+    // append to the target
+    target.appendChild(elem);
+
+    return this;
 }

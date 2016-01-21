@@ -20,21 +20,20 @@
 		$forecast = getData($q, 'forecast');
 	}
 ?>
+    <!doctype html>
+    <html lang="en" id="results">
 
-<!doctype html>
-<html lang="en" id="results">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Weatherly</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="robots" content="noindex, nofollow" /> 
-
-        <link rel="stylesheet" href="/css/styles.css">         
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
+
     <body>
-    
         <header>
             <div class="xl-6 s-8">
                 <h1>
@@ -65,57 +64,53 @@
                 </h1>
             </div>
             <div class="xl-6 s-4">
-            	<a href="/" class="btn right">Back</a>
-            </div>  
-        </header> 
-    
-        
+                <a href="/" class="btn right">Back</a>
+            </div>
+        </header>
         <main>
-            <section class="container"> 
-							<?php if ($daily) { ?>
-	                <div class="xl-12">
-	                    <h2><?php echo $daily['name']; ?>, <?php echo $daily['sys']['country']; ?></h2>
-	                    <img src="http://openweathermap.org/images/flags/<?php echo strtolower($daily['sys']['country']); ?>.png" class="flag" />
-	                </div>
-	                <div class="xl-12 no-padding-bottom">
-										<h3><?php echo ucfirst($daily['weather'][0]['description']); ?></h3>
-	                </div>
-	                <div class="xl-2 s-6 no-padding-top text-center">
-											<img src="http://openweathermap.org/img/w/<?php echo $daily['weather'][0]['icon']; ?>.png" alt="<?php echo ucfirst($daily['weather'][0]['description']); ?>"  class="icon" />
-	                </div>
-	                <div class="xl-2 s-6 no-padding-top">
-										<h5>Current</h5>
-										<h5 class="temp"><?php echo convertKtoC($daily['main']['temp']); ?>&deg;C</h5>												
-	                </div>
-	                <div class="xl-2 s-6 text-center">
-										<h5>Max Temp</h5>
-										<h5><?php echo convertKtoC($daily['main']['temp_max']); ?>&deg;C</h5>												
-	                </div>
-	                <div class="xl-2 s-6 text-center">
-										<h5>Min Temp</h5>
-										<h5><?php echo convertKtoC($daily['main']['temp_min']); ?>&deg;C</h5>												
-	                </div>
-	                <div class="xl-2 s-6 text-center">
-										<h5>Humidity</h5>
-										<h5><?php echo $daily['main']['humidity']; ?>%</h5>												
-	                </div>
-	                <div class="xl-2 s-6 text-center">
-										<h5>Wind</h5>
-										<h5><?php echo $daily['wind']['speed']; ?> m/s</h5>	 											
-	                </div>	                	                	                	                
-				<?php } else { ?>   
-					<div class="xl-12">		                 
-						<h1>Oops!</h1>
-				        <div class="alert alert-warning">
-				            <p><strong><?php echo $_POST['q']; ?></strong> returned no results, please try and simplify your term. <a href="/">Try again</a>.</p>
-				        </div>
-				    </div>                  
-				<?php } ?>
-
-				
-				<?php if ($forecast) { ?>
-					<div class="xl-12 no-padding-bottom">
-						<h2>Forecast<h2>
+            <section class="container">
+                <?php if ($daily) { ?>
+                    <div class="xl-12">
+                        <h2><?php echo $daily['name']; ?>, <?php echo $daily['sys']['country']; ?></h2>
+                        <img src="http://openweathermap.org/images/flags/<?php echo strtolower($daily['sys']['country']); ?>.png" class="flag" />
+                    </div>
+                    <div class="xl-12 no-padding-bottom">
+                        <h3><?php echo ucfirst($daily['weather'][0]['description']); ?></h3>
+                    </div>
+                    <div class="xl-2 s-6 no-padding-top text-center">
+                        <img src="http://openweathermap.org/img/w/<?php echo $daily['weather'][0]['icon']; ?>.png" alt="<?php echo ucfirst($daily['weather'][0]['description']); ?>" class="icon" />
+                    </div>
+                    <div class="xl-2 s-6 no-padding-top">
+                        <h5>Current</h5>
+                        <h5 class="temp"><?php echo convertKtoC($daily['main']['temp']); ?>&deg;C</h5>
+                    </div>
+                    <div class="xl-2 s-6 text-center">
+                        <h5>Max Temp</h5>
+                        <h5><?php echo convertKtoC($daily['main']['temp_max']); ?>&deg;C</h5>
+                    </div>
+                    <div class="xl-2 s-6 text-center">
+                        <h5>Min Temp</h5>
+                        <h5><?php echo convertKtoC($daily['main']['temp_min']); ?>&deg;C</h5>
+                    </div>
+                    <div class="xl-2 s-6 text-center">
+                        <h5>Humidity</h5>
+                        <h5><?php echo $daily['main']['humidity']; ?>%</h5>
+                    </div>
+                    <div class="xl-2 s-6 text-center">
+                        <h5>Wind</h5>
+                        <h5><?php echo $daily['wind']['speed']; ?> m/s</h5>
+                    </div>
+                    <?php } else { ?>
+                        <div class="xl-12">
+                            <h1>Oops!</h1>
+                            <div class="alert alert-warning">
+                                <p><strong><?php echo $_POST['q']; ?></strong> returned no results, please try and simplify your term. <a href="/">Try again</a>.</p>
+                            </div>
+                        </div>
+                        <?php } ?>
+                            <?php if ($forecast) { ?>
+                                <div class="xl-12 no-padding-bottom">
+                                    <h2>Forecast<h2>
 					</div>		
 					<?php
 						// loop thru forecast array
@@ -142,4 +137,4 @@
 				<?php } ?>
 			</section>     
 
-<?php include "includes/footer.php" ?>           
+<?php include "includes/footer.php" ?>
