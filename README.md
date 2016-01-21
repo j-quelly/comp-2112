@@ -1,9 +1,12 @@
 # comp-2112
 - PLAR for COMP 2112
 
-### Current Version: 1.2.0
+### Current Version: 2.0.0
 
 ## Changelog
+- v2.0.0 (1/21/2016)
+	- adds rudimentary templating engine, better for performance and less code
+	- 
 - v1.2.0 (1/20/2016)
 	- adds client-side DOM manipulation
 	- adds some graceful degradation 
