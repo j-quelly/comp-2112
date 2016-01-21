@@ -1,6 +1,6 @@
 {
     "name": "2112",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "PLAR for COMP-2112",
     "private": true,
     "devDependencies": {
