@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js" id="<?php echo ($index ? 'search' : 'results'); ?>">
+<html lang="en" id="<?php echo ($index ? 'search' : 'results'); ?>">
 
 <head>
     <meta charset="utf-8">
@@ -13,8 +13,11 @@
     <!-- [if IE 8]>
     <link rel="stylesheet" href="/css/ie8.css"> 
     <![endif]-->
-    <!-- get the FOUC out of here -->
+    <!-- hybrid prevention of FOUC -->
     <script>
+    // assign no js class
+    document.documentElement.className = 'no-js';
+    // remove no js class
     (function(H) {
         H.className = H.className.replace(/\bno-js\b/, 'js')
     })(document.documentElement)
