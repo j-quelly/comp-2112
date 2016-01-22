@@ -13,6 +13,7 @@
     <!-- [if IE 8]>
     <link rel="stylesheet" href="/css/ie8.css"> 
     <![endif]-->
+    <!-- get the FOUC out of here -->
     <script>
     (function(H) {
         H.className = H.className.replace(/\bno-js\b/, 'js')
@@ -61,3 +62,12 @@
                 <?php } ?>
     </header>
     <main>
+        <!--[if lt IE 8]>
+            <div class="container">
+                <div class="xl-12">
+                    <div class="alert alert-warning">
+                        <p><strong>Warning:</strong> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank" rel="nofollow">upgrade your browser</a> to improve your experience.</p>
+                    </div>
+                </div> 
+            </div> 
+            <![endif]-->

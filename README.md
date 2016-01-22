@@ -1,9 +1,13 @@
 # comp-2112
 - PLAR for COMP 2112
 
-### Current Version: 2.0.0
+### Current Version: 2.1.0
 
 ## Changelog
+- v2.1.0 (1/22/2016)
+	- passes: edge, ie10, 9, 8, tells ie7 to go home
+	- adds some animation
+	- finalizes app
 - v2.0.0 (1/21/2016)
 	- adds rudimentary templating engine
 	- removes forEach loop from engine

@@ -1,6 +1,11 @@
+/*
+ **********************************
+ * Deprecated as of version 2.x.x *
+ **********************************
+ */
+
 /**
  * Unobtrusive client-side scripting for comp 2112
- * * unobtrusive 
  */
 
 

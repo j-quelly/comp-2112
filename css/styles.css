@@ -2,11 +2,11 @@
 /* Framework by Studio174.ca
 ================================================================================= 
 Author: Studio174.ca
-Updated: 10/7/2015   
+Updated: 10/7/2015    
 
 Legend
 =================================================================================
-* - file requires refinements 
+* - file requires refinements  
 
  Index
 =================================================================================
@@ -1551,41 +1551,47 @@ textarea {
  * - styles pertaining to this theme
  */
 /* structure */
-/* line 42, ../sass/styles.scss */
+/* line 40, ../sass/styles.scss */
+div {
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+/* line 45, ../sass/styles.scss */
 .no-js {
   display: none;
 }
 
-/* line 46, ../sass/styles.scss */
+/* line 49, ../sass/styles.scss */
 html,
 body {
   height: 100%;
 }
 
-/* line 51, ../sass/styles.scss */
+/* line 54, ../sass/styles.scss */
 body {
   min-height: 100%;
 }
 
-/* line 55, ../sass/styles.scss */
+/* line 58, ../sass/styles.scss */
 #search {
   background-color: #F79F2E;
 }
 
-/* line 59, ../sass/styles.scss */
+/* line 62, ../sass/styles.scss */
 #results {
   background-color: #30BEEA;
 }
 
 /* logo */
-/* line 66, ../sass/styles.scss */
+/* line 69, ../sass/styles.scss */
 h1 {
   font-size: 26px;
   float: left;
   margin: 20px 0 0 0;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 75, ../sass/styles.scss */
 h1 svg {
   width: 45px;
   height: 45px;
@@ -1593,19 +1599,19 @@ h1 svg {
 }
 
 /* typography */
-/* line 81, ../sass/styles.scss */
+/* line 84, ../sass/styles.scss */
 h2 {
   font-size: 30px;
   float: left;
 }
 
-/* line 86, ../sass/styles.scss */
+/* line 89, ../sass/styles.scss */
 h3 {
   font-style: italic;
   font-size: 20px;
 }
 
-/* line 91, ../sass/styles.scss */
+/* line 94, ../sass/styles.scss */
 .temp {
   font-size: 60px;
 }
@@ -1613,12 +1619,12 @@ h3 {
 /**
  * forms
  */
-/* line 100, ../sass/styles.scss */
+/* line 103, ../sass/styles.scss */
 #question {
   margin: 80px 0 0 0;
 }
 
-/* line 104, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 input[type=submit] {
   border: solid 1px #fff;
   border-radius: 20px;
@@ -1628,13 +1634,13 @@ input[type=submit] {
   font-weight: bold;
   transition: all 0.15s ease-in-out 0s;
 }
-/* line 112, ../sass/styles.scss */
+/* line 115, ../sass/styles.scss */
 input[type=submit]:hover {
   background: #fff;
   color: #F7AC41;
 }
 
-/* line 118, ../sass/styles.scss */
+/* line 121, ../sass/styles.scss */
 input[type=text] {
   width: 100%;
   border: none;
@@ -1656,25 +1662,25 @@ input[type=text] {
   padding: 2% 0 2% 0;
 }
 
-/* line 139, ../sass/styles.scss */
+/* line 142, ../sass/styles.scss */
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 144, ../sass/styles.scss */
+/* line 147, ../sass/styles.scss */
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 149, ../sass/styles.scss */
+/* line 152, ../sass/styles.scss */
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 154, ../sass/styles.scss */
+/* line 157, ../sass/styles.scss */
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: rgba(255, 255, 255, 0.3);
@@ -1685,7 +1691,7 @@ input[type=text] {
 }
  */
 /* buttons */
-/* line 168, ../sass/styles.scss */
+/* line 171, ../sass/styles.scss */
 .btn {
   border: solid 1px #fff;
   border-radius: 20px;
@@ -1700,51 +1706,51 @@ input[type=text] {
   text-align: center;
   transition: all 0.15s ease-in-out 0s;
 }
-/* line 181, ../sass/styles.scss */
+/* line 184, ../sass/styles.scss */
 .btn:hover {
   background: #fff;
   color: #1BB7E8;
 }
 
 /* images */
-/* line 190, ../sass/styles.scss */
+/* line 193, ../sass/styles.scss */
 .flag {
   margin: 15px 0 0 15px;
   float: left;
 }
 
-/* line 195, ../sass/styles.scss */
+/* line 198, ../sass/styles.scss */
 .icon {
   width: 100px;
   height: 100px;
 }
 
 /* weather card */
-/* line 203, ../sass/styles.scss */
+/* line 206, ../sass/styles.scss */
 .card {
   background: #FBFBFB;
   padding: 8%;
 }
-/* line 206, ../sass/styles.scss */
+/* line 209, ../sass/styles.scss */
 .card ul {
   list-style: none;
 }
-/* line 208, ../sass/styles.scss */
+/* line 211, ../sass/styles.scss */
 .card ul .day {
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 213, ../sass/styles.scss */
+/* line 216, ../sass/styles.scss */
 .card ul .month {
   font-size: 20px;
   font-weight: bold;
 }
-/* line 217, ../sass/styles.scss */
+/* line 220, ../sass/styles.scss */
 .card ul .desc {
   font-style: italic;
 }
-/* line 220, ../sass/styles.scss */
+/* line 223, ../sass/styles.scss */
 .card ul .temp {
   font-weight: bold;
   font-size: 30px;

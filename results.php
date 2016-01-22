@@ -1,10 +1,12 @@
 <?php 
     include "includes/functions.php";
 
-    if ($_POST['q']) {
+    if ($_POST['q'] || $_GET['q']) {
+
+        $q = ($_POST['q'] ? $_POST['q'] : $_GET['q']);
 
         // prepare the string for better search results
-        $q = assembleQuery($_POST['q']);
+        $q = assembleQuery($q);
 
         // GET daily weather
         $daily = getData($q, 'daily');

@@ -18,4 +18,5 @@
     <div class="container" id="search-results">
         <!-- content goes here -->
     </div>
+    <script src="js/main2.js"></script>
     <?php include "includes/footer.php" ?>

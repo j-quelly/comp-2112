@@ -1,19 +1,30 @@
 /**
  * Unobtrusive client-side scripting for comp 2112
+ * -- I left a question for you on line 99, would be nice to hear your opinion :)
  */
 
 
 // store form object in a var to reference later
 var searchForm = document.getElementById('search-form');
 
+
 // when the form is submit, invoke a function
 searchForm.onsubmit = function(e) {
 
-    // prevent the form from submitting 
-    e.preventDefault();
-
     // capture form data
     var data = document.getElementById('q').value;
+
+    // assemble the string for better search results
+    data = assembleQuery(data);
+
+    // check version of IE
+    if (oldIEV()) {
+        window.location = 'http://2112.websiteprogress.ca/results.php?q=' + data;
+        return;
+    } else {
+        // prevent the form from submitting 
+        e.preventDefault();
+    }
 
     // if user did not submit a query
     if (data.length == 0) {
@@ -34,11 +45,9 @@ searchForm.onsubmit = function(e) {
         document.getElementById("search-results").appendChild(errorSite);
     }
 
-    // assemble the string for better search results
-    data = assembleQuery(data);
-
     // hide mobile keyboard
     document.activeElement.blur();
+
 
     /**
      * GET data
@@ -82,7 +91,13 @@ searchForm.onsubmit = function(e) {
     // location  
     dailySite.getElementsByClassName('location')[0].innerHTML = current.name + ', ' + current.sys.country;
 
-    // alternative to injecting the dom with returned data
+    /**
+     * Alternative to injecting the dom with returned data, 
+     * this is a much prettier syntax, 
+     * but instantiating this many objects could be taxing on performance
+     * it would be fun to benchmark this.
+     * What do you think would be more performant?
+     */
     // new Injector(dailySite, 'location').inject(current.name + ', ' + current.sys.country);
 
     // flag
@@ -111,6 +126,15 @@ searchForm.onsubmit = function(e) {
 
     // append the template to the DOM
     document.getElementById("search-results").appendChild(dailySite);
+
+    // make element transparent
+    dailySite.style.opacity = 0;
+
+    // apply the state
+    window.getComputedStyle(dailySite).opacity;
+
+    // fade it in
+    dailySite.style.opacity = 1;
 
     // shorten the array variable
     var day = forecast.list;
@@ -160,6 +184,16 @@ searchForm.onsubmit = function(e) {
 
         // append the template to the DOM tree
         document.getElementById("search-results").appendChild(forecastSite);
+
+
+        // make element transparent
+        forecastSite.style.opacity = 0;
+
+        // apply the state
+        window.getComputedStyle(forecastSite).opacity;
+
+        // fade it in
+        forecastSite.style.opacity = 1;
 
     }
 
@@ -282,6 +316,24 @@ function month(timestamp) {
     var a = new Date(timestamp * 1000);
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return months[a.getMonth()] + ' ' + a.getDate();
+}
+
+// a function to check version of IE
+function oldIEV() {
+
+    var IE = navigator.appVersion;
+    var versions = ['MSIE 9.', 'MSIE 8', 'MSIE 7.'];
+    var oldIE = false;
+
+    // loop thru versions
+    for (var i = 0; i < versions.length; i++) {
+        if (IE.indexOf(versions[i]) != -1) {
+            oldIE = true;
+        }
+    }
+
+    return oldIE;
+
 }
 
 /**

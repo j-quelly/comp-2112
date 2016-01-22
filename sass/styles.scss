@@ -5,11 +5,11 @@
 /* Framework by Studio174.ca
 ================================================================================= 
 Author: Studio174.ca
-Updated: 10/7/2015   
+Updated: 10/7/2015    
 
 Legend
 =================================================================================
-* - file requires refinements 
+* - file requires refinements  
 
  Index
 =================================================================================
@@ -36,6 +36,11 @@ Legend
 
 
 /* structure */
+
+div {
+    -webkit-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
 
 .no-js {
     display: none;
