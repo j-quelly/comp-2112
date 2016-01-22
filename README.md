@@ -5,8 +5,9 @@
 
 ## Changelog
 - v2.0.0 (1/21/2016)
-	- adds rudimentary templating engine, better for performance and less code
-	- 
+	- adds rudimentary templating engine
+	- removes forEach loop from engine
+	- cleans up code/styles
 - v1.2.0 (1/20/2016)
 	- adds client-side DOM manipulation
 	- adds some graceful degradation 

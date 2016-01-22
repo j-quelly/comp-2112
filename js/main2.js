@@ -1,6 +1,5 @@
 /**
  * Unobtrusive client-side scripting for comp 2112
- * * unobtrusive 
  */
 
 
@@ -16,6 +15,25 @@ searchForm.onsubmit = function(e) {
     // capture form data
     var data = document.getElementById('q').value;
 
+    // if user did not submit a query
+    if (data.length == 0) {
+
+        /**
+         * Display warning to user
+         */
+
+        // get the template
+        var errorTemplate = document.getElementById('error-template').innerHTML,
+            // create an element to inject the template
+            errorSite = document.createElement('div');
+
+        // inject the template
+        errorSite.innerHTML = errorTemplate;
+
+        // append the template to the DOM
+        document.getElementById("search-results").appendChild(errorSite);
+    }
+
     // assemble the string for better search results
     data = assembleQuery(data);
 
@@ -28,7 +46,7 @@ searchForm.onsubmit = function(e) {
 
     // get current weather data
     var current = getCurrent(data);
-    var forecast = getForecast(data, 6);
+    var forecast = getForecast(data, 7);
 
 
     /**
@@ -47,8 +65,6 @@ searchForm.onsubmit = function(e) {
 
     /**
      * Display the results
-     * perhaps separate this into functions?
-     * or perhaps instantiate objects
      */
 
     // get the template
@@ -66,7 +82,7 @@ searchForm.onsubmit = function(e) {
     // location  
     dailySite.getElementsByClassName('location')[0].innerHTML = current.name + ', ' + current.sys.country;
 
-    // potential option to pursue?
+    // alternative to injecting the dom with returned data
     // new Injector(dailySite, 'location').inject(current.name + ', ' + current.sys.country);
 
     // flag
@@ -96,8 +112,16 @@ searchForm.onsubmit = function(e) {
     // append the template to the DOM
     document.getElementById("search-results").appendChild(dailySite);
 
-    // loop thru forecast object array
-    forecast.list.forEach(function(day) {
+    // shorten the array variable
+    var day = forecast.list;
+
+    // loop thru array
+    for (var i = 0; i < day.length; i++) {
+
+        if (i < 1) continue;
+
+        // calculate the average temp
+        var avg = (day[i].temp.min + day[i].temp.max) / 2;
 
         // get the next template
         var forecastTemplate = document.getElementById('forecast-template').innerHTML,
@@ -108,16 +132,36 @@ searchForm.onsubmit = function(e) {
         forecastSite.innerHTML = forecastTemplate;
 
         // inject the day of the week
-        forecastSite.getElementsByClassName('day')[0].innerHTML = weekDay(day.dt);
+        forecastSite.getElementsByClassName('day')[0].innerHTML = weekDay(day[i].dt);
 
         // inject the month
-        forecastSite.getElementsByClassName('month')[0].innerHTML = month(day.dt); //format this
+        forecastSite.getElementsByClassName('month')[0].innerHTML = month(day[i].dt);
+
+        // icon
+        forecastSite.getElementsByClassName('card-icon')[0].src = 'http://openweathermap.org/img/w/' + day[i].weather[0].icon + '.png';
+
+        // description
+        forecastSite.getElementsByClassName('desc')[0].innerHTML = ucfirst(day[i].weather[0].description);
+
+        // average temp
+        forecastSite.getElementsByClassName('temp')[0].innerHTML = convertKtoC(avg) + '&deg;C';
+
+        // min temp
+        forecastSite.getElementsByClassName('min-temp')[0].innerHTML = 'Low: ' + convertKtoC(day[i].temp.min) + '&deg;C';
+
+        // max temp
+        forecastSite.getElementsByClassName('max-temp')[0].innerHTML = 'High: ' + convertKtoC(day[i].temp.max) + '&deg;C';
+
+        // humidity
+        forecastSite.getElementsByClassName('humidity')[0].innerHTML = 'Humidity: ' + day[i].humidity + '%';
+
+        // wind
+        forecastSite.getElementsByClassName('wind')[0].innerHTML = 'Wind: ' + day[i].speed + ' m/s';
 
         // append the template to the DOM tree
         document.getElementById("search-results").appendChild(forecastSite);
 
-    });
-
+    }
 
 }
 
@@ -241,7 +285,7 @@ function month(timestamp) {
 }
 
 /**
- * Define an Injector class
+ * Define an Injector object
  */
 var Injector = function(template, attr, index) {
     this.template = template;
