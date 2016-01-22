@@ -19,6 +19,8 @@ searchForm.onsubmit = function(e) {
     // assemble the string for better search results
     data = assembleQuery(data);
 
+    // hide mobile keyboard
+    document.activeElement.blur();
 
     /**
      * GET data
@@ -228,7 +230,7 @@ var Node = function(childElm, parentElem) {
 
 
 /**
- * Node class methods
+ * Node methods
  */
 
 // set the text node in the tree
@@ -260,7 +262,7 @@ Node.prototype.append = function() {
     // create the element
     var elem = document.createElement(this.element);
 
-    // create the node
+    // create the text node
     if (this.textNode) {
         var node = document.createTextNode(this.textNode);
         // append the node

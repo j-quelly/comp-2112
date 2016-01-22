@@ -1,0 +1,7 @@
+@media \0screen {
+    img {
+        width: auto;
+        /* for ie 8 */
+        border: 0;
+    }
+}

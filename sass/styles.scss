@@ -29,83 +29,55 @@ Legend
 @import "components/helpers";
 // 4. Base Styles           - opinionated defaults
 @import "components/base";
-// 5. Print Styles          - Inlined to avoid the additional HTTP request
-@import "components/print";
-// compass
-@import "compass";
 
 /* 6. Author's Styles                       
  * - styles pertaining to this theme
  */
 
-pre {
-    overflow: none !important;
-}
-
 
 /* structure */
 
-html {
+.no-js {
+    display: none;
+}
+
+html,
+body {
     height: 100%;
 }
 
+body {
+    min-height: 100%;
+}
+
 #search {
-    // Needs latest Compass, add '@import "compass"' to your scss
-    // Permalink - use to edit and share this gradient:
-    // http://colorzilla.com/gradient-editor/#f79621+0,f9c667+100
-    background-color: #f79621;
-    // Old browsers
-    @include filter-gradient(#f79621, #f9c667, vertical);
-    // IE6-9
-    @include background-image(linear-gradient(top, #f79621 0%, #f9c667 100%));
+    background-color: #F79F2E;
 }
 
 #results {
-    // Needs latest Compass, add '@import "compass"' to your scss
-    // Permalink - use to edit and share this gradient:
-    // http://colorzilla.com/gradient-editor/#0fb4e7+0,a9e4f7+100
-    background-color: rgb(15, 180, 231);
-    // Old browsers
-    @include filter-gradient(#0fb4e7, #a9e4f7, vertical);
-    // IE6-9
-    @include background-image(linear-gradient(top, rgba(15, 180, 231, 1) 0%, rgba(169, 228, 247, 1) 100%));
+    background-color: #30BEEA;
 }
 
 
 /* logo */
 
-object svg {
-    color-fill: #fff;
-}
-
-object {
-    padding: 15px 0 0 0;
-    width: 64px;
-    height: 64px;
-    float: left;
-    color: #fff;
-    fill: #fff;
-    color-fill: #fff;
-}
-
 h1 {
     font-size: 26px;
     float: left;
-    margin: 20px 0 0 10px;
+    margin: 20px 0 0 0;
 }
 
 h1 svg {
     width: 45px;
     height: 45px;
-    fill: currentColor;
-    padding: 0 0 10px 0;
+    padding: 0 0 5px 0;
 }
 
 
 /* typography */
 
 h2 {
-    font-size: 36px;
+    font-size: 30px;
     float: left;
 }
 
@@ -122,6 +94,10 @@ h3 {
 /**
  * forms
  */
+
+#question {
+    margin: 80px 0 0 0;
+}
 
 input[type=submit] {
     border: solid 1px #fff;
@@ -178,10 +154,11 @@ input[type=text] {
     color: rgba(255, 255, 255, 0.3);
 }
 
-:placeholder-shown {
-    /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+
+/* :placeholder-shown {
     color: rgba(255, 255, 255, 0.3);
 }
+ */
 
 
 /* buttons */
@@ -195,7 +172,7 @@ input[type=text] {
     width: 90px;
     font-weight: bold;
     text-decoration: none;
-    margin: 15px 10px 0 0;
+    margin: 22px 10px 0 0;
     display: block;
     text-align: center;
     transition: all 0.15s ease-in-out 0s;
@@ -214,8 +191,8 @@ input[type=text] {
 }
 
 .icon {
-    width: 80%;
-    height: 80%;
+    width: 100px;
+    height: 100px;
 }
 
 
@@ -223,7 +200,7 @@ input[type=text] {
 
 .card {
     background: #FBFBFB;
-    padding: 4%;
+    padding: 8%;
     ul {
         list-style: none;
         .day {

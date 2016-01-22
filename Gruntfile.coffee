@@ -43,6 +43,17 @@ module.exports = (grunt) ->
 					config: 'config.rb'
 
 
+		# compress our css files		
+		cssmin:
+			build:
+				files:
+					"css<%= path.sep %>styles.min.css": [
+						'css<%= path.sep %>styles.css'
+						'!css<%= path.sep %>ie8.css'
+						'!css<%= path.sep %>styles.min.css' 
+					]						
+
+
 		# watches files and runs tasks when the files change
 		watch:
 			options: 
