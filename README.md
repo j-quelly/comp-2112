@@ -3,6 +3,9 @@
 
 ### Current Version: 2.1.0
 
+## Default Usage
+http://2112.websiteprogress.ca
+
 ## Changelog
 - v2.1.0 (1/22/2016)
 	- passes: edge, ie10, 9, 8, tells ie7 to go home
