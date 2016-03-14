@@ -1,5 +1,5 @@
 # comp-2112
-- PLAR for COMP 2112
+- An unobtrusive vanilla weather application built with www.openweathermap.org API
 
 ### Current Version: 2.1.0
 
